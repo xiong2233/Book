@@ -1,0 +1,74 @@
+#bg{
+    background-color: orange;
+}
+.site-menu a{
+    display: inline-block;
+    width:100px;
+    height:30px;
+    border:none;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 20px;
+
+}
+
+
+.input-holder a{
+    display: inline-block;
+    width:100px;
+    height:30px;
+    border:none;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 20px;
+}
+
+.input-holder a:hover{
+    box-shadow: 3px 3px 3px 1px #3d3d3d;
+}
+
+.input-holder a:active{
+    box-shadow: 2px 2px 2px 1px gray;
+}
+
+#money{
+    width:180px;
+    height:25px;
+}
+
+#res{
+    font-size: 30px;
+    padding-left: 50px;
+}
+
+#btn{
+    margin-left: 20px;
+}
+.adminbtn{
+    float: right;
+    border: none;
+    width: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color:rgba(0,0,0,0);
+    color: black;
+    font-family: 'proxima-nova';
+}
+.site-menu .adminbtn:hover{
+    color: white;
+}
+.site-menu form{
+    position: relative;
+    left: 45px;
+    top:-38px;
+}
+.adminnav .adminbtn:hover{
+    color: orange;
+}
+
+

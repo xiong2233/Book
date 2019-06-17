@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+<!-- META DATA -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- Font Awesome -->
+        <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css" />
+        <!-- Main Style -->
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <!-- Responsive -->
+        <link rel="stylesheet" type="text/css" href="/static/css/responsive.css">
+        <!-- PrettyPhoto -->
+        <link rel="stylesheet" type="text/css" href="/static/css/prettyPhoto.css">
+        <!-- Fancybox -->
+        <link href="/static/css/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    </head>
+<body class="index page-index">
+<!-- START MOBILE NAVIGATION -->
+<nav id="mobile-nav">
+	<a href="#welcome">欢迎，{{ name }}</a>
+	<a href="#about">关于我们</a>
+	<a href="#portfolio">历史记录</a>
+	<a href="#team">借书详情</a>
+	<a href="#talk-to-us">个人中心</a>
+</nav>
+<!-- END MOBILE NAVIGATION -->
+<div id="site-holder">
+	<div id="flip" class="container" data-attr-page="0">
+		<!-- START WELCOME SECTION -->
+		<div class="f-page yellow-bkg active" id="screen-welcome">
+			<div id="debugger">
+			</div>
+			<!-- PRELOADER -->
+			<div id="content-loader-holder">
+				<div id="content-loader">
+					<div class="ss-preloader-spin">
+					</div>
+				</div>
+			</div>
+			<!-- END PRELOADER -->
+			<div class="g-screen fixed-screen">
+				<!-- START HEADER -->
+				<header class="site-header yellow">
+					<span class="nav-trigger">
+						<span class="nav-trigger-inside">
+						<span class="nav-trigger-line"></span>
+					</span>
+				</span>
+			<!-- START NAVIGATION MENU -->
+			<nav class="site-menu">
+				<a href="#welcome">欢迎，{{ name }}</a>
+                <a href="#about">关于我们</a>
+                <a href="#portfolio">历史记录</a>
+                <a href="#team">借书详情</a>
+                <a href="#talk-to-us">个人中心</a>
+			</nav>
+			<!-- END NAVIGATION MENU -->
+
+		</header>
+				<!-- END HEADER -->
+				<!-- START LOGO -->
+				<div class="main-logo">
+					<div class="main-logo-shadow">
+					</div>
+					<div class="logo-img">
+					</div>
+                    <p></p>
+					<a href="#about"><span class="logo-arrow"></span></a>
+				</div>
+				<!-- END LOGO -->
+				<div class="main-quote">
+                </div>
+			</div>
+		</div>
+		<!-- END WELCOME SECTION -->
+		<!-- START ABOUT SECTION -->
+		<div class="f-page gray-bkg" id="screen-about">
+			<!-- START HEADER -->
+			<header class="site-header grey">
+			<span class="nav-trigger">
+				<span class="nav-trigger-inside">
+					<span class="nav-trigger-line"></span>
+				</span>
+			</span>
+			 <!-- START NAVIGATION MENU -->
+			<nav class="site-menu">
+				<a href="#welcome">欢迎，{{ name }}</a>
+                <a href="#about">关于我们</a>
+                <a href="#portfolio">历史记录</a>
+                <a href="#team">借书详情</a>
+                <a href="#talk-to-us">个人中心</a>
+			</nav>
+			<!-- END NAVIGATION MENU -->
+
+		</header>
+			<!-- END HEADER -->
+			<section class="site-content full-height">
+					<div id="who-text">
+						<h1>愉阅社</h1>
+						<p>Hello there, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at sapien eget tellus sodales tempor. Phasellus et varius magna. Ut vulputate ipsum sed dui ullamcorper, nec consequat diam scelerisque. Duis suscipit, lorem non facilisis vulputate, metus eros rutrum ipsum, ac interdum dolor massa sollicitudin lacus. Praesent quis arcu risus. Suspendisse in lacus velit. Praesent non mi a sem ullamcorper bibendum. Nam vel sodales justo, id tincidunt arcu. Etiam volutpat dignissim vestibulum.</p>
+						</div>
+					<div id="who-image">
+						<div class="overlay"></div>
+						<img src="/static/images/dude.png" alt="John Deo">
+					</div>
+				</section>
+		</div>
+
+		<!-- END ABOUT SECTION -->
+		<!-- START PORTFOLIO SECTION -->
+		<div class="f-page gray-bkg" id="screen-portfolio">
+			<!-- START HEADER -->
+			<header class="site-header grey">
+			<span class="nav-trigger">
+				<span class="nav-trigger-inside">
+					<span class="nav-trigger-line"></span>
+				</span>
+			</span>
+			 <!-- START NAVIGATION MENU -->
+			<nav class="site-menu">
+				<a href="#welcome">欢迎，{{ name }}</a>
+                <a href="#about">关于我们</a>
+                <a href="#portfolio">历史记录</a>
+                <a href="#team">借书详情</a>
+                <a href="#talk-to-us">个人中心</a>
+			</nav>
+			<!-- END NAVIGATION MENU -->
+			<!-- START SOCIAL ICON -->
+
+			<!-- END SOCIAL ICON -->
+		</header>
+			<!-- END HEADER -->
+			<section class="site-content full-height">
+				<div class="content-frame" id="content-frame">
+				<div id="content-frame-mask" style="right: 17px;"></div>
+				  <div class="wrapper">
+				  <!-- START CONTAINER-->
+					<div class="container">
+						<div id="three-columns" class="grid-container">
+                        {% if returnbook %}
+                            <ul class="rig columns-3 gallery2">
+                                {% for i in returnbook %}
+                                <li><a class="popup" data-fancybox-group="group2">
+								<img src="{{ i.bimage }}" alt="{{ i.bname }}"></a>
+									<h3>{{ i.bname }}</h3>
+									<p>借书日期：{{ i.bdata }}</p>
+                                    <p>还书日期：{{ i.btime }}</p>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p style='font-size:50px;color:gray;text-align: center;'>还未有历史记录</p>
+                        {% endif %}
+						</div>
+					</div>
+				<!-- END CONTAINER-->
+				</div>
+				</div>
+			</section>
+			<div class="arrow">
+			</div>
+		</div>
+		<!-- END PORTFOLIO SECTION -->
+		<!-- START TEAM SECTION -->
+		<div class="f-page gray-bkg" id="screen-team">
+			<!-- START HEADER -->
+			<header class="site-header grey">
+			<span class="nav-trigger">
+				<span class="nav-trigger-inside">
+					<span class="nav-trigger-line"></span>
+				</span>
+			</span>
+			 <!-- START NAVIGATION MENU -->
+			<nav class="site-menu">
+				<a href="#welcome">欢迎，{{ name }}</a>
+                <a href="#about">关于我们</a>
+                <a href="#portfolio">历史记录</a>
+                <a href="#team">借书详情</a>
+                <a href="#talk-to-us">个人中心</a>
+			</nav>
+			<!-- END NAVIGATION MENU -->
+
+		</header>
+			<!-- END HEADER -->
+			<section class="site-content full-height">
+				<div class="content-frame">
+                    <div id="content-frame-mask1" style="right: 17px;"></div>
+                    <div id="borrow">
+                    </div>
+				</div>
+			</section>
+			<div class="arrow">
+			</div>
+		</div>
+		<!-- END TEAM SECTION -->
+		<!-- START TALK TO US SECTION -->
+		<div class="f-page yellow-bkg" id="screen-talk-to-us">
+			<!-- START HEADER -->
+			<header class="site-header yellow">
+			<span class="nav-trigger">
+				<span class="nav-trigger-inside">
+					<span class="nav-trigger-line"></span>
+				</span>
+			</span>
+			<!-- START NAVIGATION MENU -->
+			<nav class="site-menu">
+				<a href="#welcome">欢迎，{{ name }}</a>
+                <a href="#about">关于我们</a>
+                <a href="#portfolio">历史记录</a>
+                <a href="#team">借书详情</a>
+                <a href="#talk-to-us">个人中心</a>
+			</nav>
+			<!-- END NAVIGATION MENU -->
+
+		</header>
+			<!-- END HEADER -->
+			<section class="site-content full-height"><div class="content-frame">
+				<div id="form-contact">
+					<h2 id="hello">个人中心</h2>
+					<div id="info">
+                        <div style="float: left">
+                            <h4>用户名：{{ userinfo.name }}</h4>
+                            <h4>邮箱：{{ userinfo.email }}</h4>
+                            <h4>余额：{{ userinfo.money }}</h4>
+                        </div>
+                        <div style="float:right;">
+                            <h4>电话号码：{{ userinfo.phone_num }}</h4>
+                            <h4>出生日期：{{ userinfo.birthday }}</h4>
+                            <h4>爱好类型：{{ userinfo.hobby }}</h4>
+                        </div>
+                        <div style="clear: both"></div>
+                        <h4>格言：{{ userinfo.say }}</h4>
+                    </div>
+
+					<form id="contactform" method="post">
+						<div class="formfield clearfix">
+							<div class="col1">
+								<div class="input-holder">
+
+									<b>电话号码：</b><input type="text" name="phone" class="text" id="name" placeholder="phone" maxlength="11" oninput="value=value.replace(/[^\d]/g,'')" />
+								</div>
+							</div>
+							<div class="col1 second" style="margin-right: 0px;">
+								<div class="input-holder">
+                                    {% if userinfo.birthday is Null %}
+									    <b>出生日期：</b><input  type="date" name="birthday"  class="text" id="birthday"/>
+                                    {% else %}
+                                        <b>出生日期：</b><input  type="date" name="birthday"  class="text" id="birthday" value="{{ userinfo.birthday }}"/>
+                                    {% endif %}
+								</div>
+							</div>
+							<div class="col1 last">
+								<div class="input-holder">
+									<b style="padding-left: 20px;">爱好类型：</b>
+                                    <select style="display: block;width:315px;height: 55px;padding-left: 20px;" name="hobby" value="Null">
+                                        <option value="" disabled selected hidden>请选择爱好类型</option>
+                                        {% for book in List %}
+                                        <option>{{ book }}</option>
+                                        {% endfor %}
+                                    </select>
+								</div>
+							</div>
+						</div>
+						<div class="formfield">
+							<div class="input-holder">
+                                <b>格言：</b>
+								<textarea id="message" name="message" placeholder="请写下钟爱的名言警句" value="Null"></textarea>
+							</div>
+						</div>
+						<input id="btn" name="submit" type="submit" value="提交" style="width: 200px;height: 50px;background-color:black;border:none;color:white;font-size:16px;"/>
+						<span id="result"></span>
+                    {% csrf_token %}
+					</form>
+				</div></div>
+			</section>
+		</div>
+		<!-- END TALK TO US SECTION -->
+	</div>
+</div>
+<!-- JS Plugin -->
+<script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/js/mobicom.custom.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+<script type="text/javascript" src="/static/js/jquery.spritely-0.6.8.js"></script>
+<script src="/static/js/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script type="text/javascript"><!--
+    var days
+    var money
+    var htmltext
+    window.onload = function(){
+        htmltext=""
+        console.log("11111111111111111111111111")
+        var List = {{ borrowed|safe }}
+        console.log(List)
+        console.log("222222222222222222")
+        if(List.length==0){
+            htmltext = "<p style='font-size:50px;color:gray;text-align: center;'>还未有借书记录</p>"
+        }else {
+            for (var i in List) {
+                var btime = List[i]['data']
+                var bname = List[i]["bookname"]
+                var bimage = List[i]["bookimage"]
+                var author = List[i]['author']
+                var press = List[i]['press']
+                var d1 = btime.replace(/\-/g, "/");
+                var date1 = new Date(d1);
+                var date2 = new Date()
+                var date3 = date2.getTime() - date1.getTime()
+                days = Math.floor(date3 / (24 * 3600 * 1000));
+                            leave1=date3%(24*3600*1000);
+                            hours=Math.floor(leave1/(3600*1000));
+                            leave2=leave1%(3600*1000);
+                            minutes=Math.floor(leave2/(60*1000));
+                            leave3=leave2%(60*1000);
+                            seconds=Math.round(leave3/1000)
+                if (days < 3) {
+                    money = 3.00
+                } else {
+                    money = parseFloat(5 + (days - 3) * 0.5).toFixed(2)
+                }
+                htmltext += '<div class="what-row clearfix image-on-left">' +
+                    '<div class="what-image"><div class="screenshot"><img src="' + bimage + '" alt="thumb"></div><div class="overlay"></div></div>' +
+                    '<div class="what-text"><h2>' + bname + '</h2><h4>作者：' + author + '　　　出版社：' + press + '</h4><div class="what-image-mobile">' +
+                    '<div class="overlay"></div><img src="/static/images/1_team.jpg" alt="thumb"></div>' +
+                    '<div class="what-excerpt"><p class="borrowtime">借书时间：' + btime + ' </p><p class="borrowday">借书天数：' + days + '天' + '</p><p class="money">金额：' + money + '元' + '</p></div></div>' +
+                    '</div>';
+            }
+        }
+        console.log((htmltext))
+        $("#borrow").html(htmltext)
+    }
+    $("#btn").click(function () {
+        var zhi = $("#birthday").val()
+        console.log(zhi)
+    })
+	function checkemail(mailid) {
+		var numericExpression = /^[A-Z0-9\._%-]+@[A-Z0-9\.-]+\.[A-Z]{2,4}$/i;
+		if (mailid.match(numericExpression)) return true;
+		else return false;
+	}
+	function ValidatorForm(theForm) {
+		if (theForm.name.value == "") {
+			alert("Please enter a value for the \"Name\" field.");
+			theForm.name.focus();
+			return (false);
+		}
+		if (theForm.email.value == "") {
+			alert("Please enter a value for the \"Email\" field.");
+			theForm.email.focus();
+			return (false);
+		}
+		if (checkemail(theForm.email.value) == false) {
+			alert("Please Enter the Valid Email ID.");
+			theForm.email.focus();
+			return false;
+		}
+		if (theForm.phone.value == "") {
+			alert("Please enter a value for the \"phone\" field.");
+			theForm.phone.focus();
+			return (false);
+		}
+		if (checkemail(theForm.email.value) == false) {
+			alert("Please Enter the Valid Email ID.");
+			theForm.email.focus();
+			return false;
+		}
+		return (true);
+	}
+//--></script>
+</body>
+</html>

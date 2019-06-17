@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+        <style>
+            #bg{
+                background-color: orange;
+            }
+            .site-menu{
+                margin-top:50px;
+                margin-left: 80px;
+            }
+            .site-menu a{
+                display: inline-block;
+                color: black;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin-right: 20px;
+                text-decoration: none;
+            }
+            .site-menu a:hover{
+                color: white;
+            }
+            .main-logo-shadow{
+                width: 300px;
+                height: 300px;
+                background-image: url("/static/images/logo.png");
+                background-repeat: no-repeat;
+                background-size: 300px 300px;
+                margin:0 auto;
+                margin-top:120px;
+            }
+            .logo-arrow{
+                display: block;
+                color: black;
+                width: 70px;
+                font-size: 70px;
+                font-weight: 900;
+                text-shadow: 20px 0px 5px black;
+                text-decoration: none;
+                margin:0 auto;
+            }
+        </style>
+    </head>
+    <body id="bg">
+    <!-- START MOBILE NAVIGATION -->
+    <!-- END MOBILE NAVIGATION -->
+        <nav class="site-menu">
+            <a href="/adminindex">首页</a>
+            <a href="/portfolio">新增图书</a>
+            <a href="/team">借还书籍</a>
+            <a href="/invest">充值</a>
+            <a href="/adminlogout" class="out">注销</a>
+        </nav>
+        <div class="main-logo">
+            <div class="main-logo-shadow"></div>
+            <div class="logo-img"></div>
+            <a href="/portfolio" class="logo-arrow"><span>&gt;</span></a>
+        </div>
+        <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
+
+    </body>
+</html>

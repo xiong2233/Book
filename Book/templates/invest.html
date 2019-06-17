@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>充值</title>
+        <style>
+            .site-menu{
+                margin-top:50px;
+                margin-left: 80px;
+            }
+            .site-menu a {
+                display: inline-block;
+                color: black;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin-right: 20px;
+                text-decoration: none;
+            }
+            .site-menu a:hover{
+                color: white;
+            }
+            #hello{
+                margin-top:50px;
+                margin-left: 150px;
+            }
+            #contactform{
+                margin-left: 150px;
+            }
+            .user b{
+                font-size: 18px;
+                margin-right:10px;
+            }
+            .user input{
+                width: 300px;
+                height:50px;
+                padding-left: 10px;
+            }
+            .input-holder b{
+                font-size: 18px;
+            }
+            .input-holder a{
+                display: inline-block;
+                width:100px;
+                height:50px;
+                border:none;
+                background-color: white;
+                color: black;
+                font-size: 18px;
+                text-align: center;
+                line-height: 50px;
+                margin-right: 20px;
+            }
+            .input-holder a:hover{
+                box-shadow: 3px 3px 3px 1px #3d3d3d;
+            }
+
+            .input-holder a:active{
+                box-shadow: 2px 2px 2px 1px gray;
+            }
+
+            #money{
+                width:200px;
+                height:44px;
+                padding-left: 10px;
+            }
+            #btn{
+                margin-top:30px;
+            }
+            #res{
+                font-size: 30px;
+                padding-left: 50px;
+            }
+
+            .site-menu form{
+                position: relative;
+                left: 45px;
+                top:-38px;
+            }
+        </style>
+    </head>
+    <body style="background-color: orange">
+          <nav class="site-menu">
+              <a href="/adminindex">首页</a>
+              <a href="/portfolio">新增图书</a>
+              <a href="/team">借还书籍</a>
+              <a href="/invest">充值</a>
+              <a href="/adminlogout" class="out">注销</a>
+          </nav>
+          <div id="form-contact">
+               <h1 id="hello">充值中心</h1>
+               <form id="contactform" method="post">
+                   <div class="formfield clearfix">
+                       <div class="col1">
+                           <div class="user">
+                               <b>用户名：</b><input type="text" name="name" class="text" id="name" placeholder="用户名" style="margin-left:0px;" value="{{ name }}" required/>
+                               <span style="color:red;font-size:16px;font-weight: 900;">{{ message }}</span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="formfield">
+                       <div class="input-holder" id="rich">
+                           <h3><b>充值金额：</b></h3>
+                           <a onclick="document.getElementById('res').innerText = '充值金额：'+this.innerText;document.getElementById('money').value=this.innerText">10.00</a>
+                           <a onclick="document.getElementById('res').innerText = '充值金额：'+this.innerText;document.getElementById('money').value=this.innerText">20.00</a>
+                           <a onclick="document.getElementById('res').innerText = '充值金额：'+this.innerText;document.getElementById('money').value=this.innerText">50.00</a>
+                           <a onclick="document.getElementById('res').innerText = '充值金额：'+this.innerText;document.getElementById('money').value=this.innerText">100.00</a>
+                           <a onclick="document.getElementById('res').innerText = '充值金额：'+this.innerText;document.getElementById('money').value=this.innerText">150.00</a>
+                           <a onclick="document.getElementById('res').innerText = '充值金额：'+this.innerText;document.getElementById('money').value=this.innerText">200.00</a>
+                           <input id="money" type="text" placeholder="其他金额" name="money" onkeyup="value=value.replace(/^\D*(\d*(?:\.\d{0,1})?).*$/g, '$1')" onblur="document.getElementById('res').innerText = '充值金额：'+this.value">
+                       </div>
+                   </div>
+                   <input id="btn" name="submit" type="submit" value="提交" style="width: 200px;height: 50px;background-color:black;border:none;color:white;font-size:16px;"/>
+                   <b id="res"></b>
+                   {% csrf_token %}
+               </form>
+          </div>
+    </body>
+</html>

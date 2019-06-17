@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="width:400px;margin: 0 auto">
+        <h1 style="text-align: center">邮箱验证</h1>
+        <form method="post">
+            <p style="margin:20px 0 ;text-align: center">邮箱号：<input type="email" name="email"></p>
+            <p style="text-align: center">验证码：<input type="text" name="code" ></p>
+            <p style="color: red;font-size: 16px;text-align: center">{{ error }}</p>
+            <button style="margin-top: 20px;width: 80px;height:25px;border: none;background-color: black;color: white;margin-left: 170px;">提交</button>
+        {% csrf_token %}
+        </form>
+    </div>
+</body>
+</html>

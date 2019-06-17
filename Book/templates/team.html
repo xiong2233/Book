@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>借还书籍</title>
+    <style>
+        .site-menu{
+            margin-top:50px;
+            margin-left: 80px;
+        }
+        .site-menu a{
+            display: inline-block;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        .site-menu a:hover{
+            color: orange;
+        }
+        #write{
+            display: block;
+            width: 400px;
+            margin:0 auto;
+        }
+        #borrow{
+            margin:30px auto;
+            width:500px;
+            height: 500px;
+            background-color: orange;
+            border-radius: 8px;
+        }
+       #borrow #chiose{
+           display: block;
+           width: 150px;
+           height: 40px;
+           font-size: 18px;
+           padding-left: 45px;
+           margin:10px auto;
+           text-align: center;
+           letter-spacing:10px;
+           font-weight: bold;
+       }
+       #borrow input{
+           display: inline-block;
+           width: 250px;
+           height: 30px;
+           margin-top: 20px;
+           border-radius:5px ;
+           padding-left: 10px;
+       }
+       #borrow b{
+           margin:20px 15px 10px 50px;
+           font-size:16px;
+       }
+       #borrow button{
+           display: block;
+           margin:20px auto;
+           width: 100px;
+           height: 40px;
+           font-size: 16px;
+           background-color: black;
+           color: white;
+           border:none;
+           font-weight: bold;
+           box-shadow:2px 2px 2px 1px;
+       }
+
+       #borrow button:active{
+           box-shadow: 1px 1px 1px 1px;
+       }
+
+       </style>
+</head>
+<body>
+    <div class="f-page gray-bkg" id="screen-team">
+		<!-- START HEADER -->
+		<header class="site-header grey">
+		 <!-- START NAVIGATION MENU -->
+            <nav class="site-menu">
+                <a href="/adminindex">首页</a>
+                <a href="/portfolio">新增图书</a>
+                <a href="/team">借还书籍</a>
+                <a href="/invest">充值</a>
+                <a href="/adminlogout" class="out">注销</a>
+            </nav>
+            <!-- END NAVIGATION MENU -->
+	    </header>
+		<!-- END HEADER -->
+        <div id="borrow">
+            <div style="padding-top:50px"><h1 style="text-align: center">借还书籍登记表</h1></div>
+            <form  method="post">
+                <select name="byone" id="chiose">
+                    <option>借书</option>
+                    <option>还书</option>
+                </select>
+                <div id="write">
+                    <b>用户名：</b><input type="text" name="username" required>
+                    <p></p>
+                    <b>书　名：</b><input type="text" name="bookname" required>
+                </div>
+                <button>提　交</button>
+                <p style="font-weight: bold;font-size: 20px;color: red;text-align: center">{{ error }}</p>
+                {% csrf_token %}
+            </form>
+		</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/Lo.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-login">
+        <div id="title">
+            <i class="material-icons lock">lock</i> 登录
+        </div>
+
+        <form  method="post">
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="email" name="email" placeholder="邮箱" type="email" required class="validate" autocomplete="off">
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" name="password" placeholder="密码" type="password" required class="validate" autocomplete="off">
+            </div>
+            <p>{{ message }}</p>
+            <div class="remember-me">
+                <input type="checkbox" name="isactive">
+                <span style="color: #DDD">记住密码</span>
+                <a class="forgot-password" href="#">忘记密码?</a>
+            </div>
+            <input type="submit" value="登 录" />
+            {% csrf_token %}
+        </form>
+        <div class="register">
+            <p>还未注册用户</p>
+            <a href="/register"><button id="register-link">点击注册</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

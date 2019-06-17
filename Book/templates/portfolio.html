@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>新增图书</title>
+        <link href="/static/css/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen">
+    <!-- Font Awesome -->
+        <link href="/static/css/adminindex.css" rel="stylesheet" type="text/css">
+        <style>
+            .site-menu{
+                margin-top:50px;
+                margin-left: 80px;
+            }
+            .site-menu a{
+                display: inline-block;
+                color: black;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                margin-right: 20px;
+                text-decoration: none;
+            }
+            .site-menu a:hover{
+                color: orange;
+            }
+            #three{
+                width:500px;
+                margin:0 auto;
+                margin-top:20px;
+                background-color: orange;
+                height: 550px;
+                border-radius:5px;
+            }
+
+            #three input{
+                display: inline-block;
+                width: 250px;
+                height: 30px;
+                margin-top: 20px;
+                border-radius:5px ;
+                padding-left: 10px;
+            }
+
+            #three b{
+                margin:20px 15px 10px 50px;
+                font-size:16px;
+            }
+            #category{
+                width:150px;
+                height:30px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            #borrow button{
+                width: 100px;
+                height: 40px;
+                font-size: 16px;
+                background-color: black;
+                color: white;
+                border:none;
+                margin-top:10px;
+                margin-left: 180px;
+                margin-bottom: 20px;
+                font-weight: bold;
+                box-shadow:2px 2px 2px 1px;
+            }
+            #three button{
+                width: 100px;
+                height: 30px;
+                font-size: 16px;
+                background-color: black;
+                color: white;
+                border:none;
+                margin-top:20px;
+                margin-left: 200px;
+                font-weight: bold;
+                box-shadow:2px 2px 2px 1px;
+            }
+            #borrow button:active{
+                box-shadow: 1px 1px 1px 1px;
+            }
+            #three button:active{
+                 box-shadow: 1px 1px 1px 1px;
+            }
+        </style>
+        <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    </head>
+    <body>
+         <nav class="site-menu">
+             <a href="/adminindex">首页</a>
+             <a href="/portfolio">新增图书</a>
+             <a href="/team">借还书籍</a>
+             <a href="/invest">充值</a>
+             <a href="/adminlogout">注销</a>
+         </nav>
+         <div id="three">
+             <div style="padding-top:30px"><h1 style="text-align: center">新　增　图　书</h1></div>
+             <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 <b>类　别：</b>
+                 <select name="category" id="category">
+                     <option value="" disabled selected hidden>请选择</option>
+                     {% for i in list %}
+                     <option>{{ i }}</option>
+                     {% endfor %}
+                 </select>
+                 <br>
+                 <b>书　名：</b><input type="text" name="bookname" required>
+                 <br>
+                 <b>作　者：</b><input type="text" name="author" required>
+                 <br>
+                 <b>出版社：</b><input type="text" id="press" name="press" required>
+                 <br>
+                 <b>库　存：</b><input type="number" id="num" name="num" maxlength="11" oninput="checkNum(this.value)" required>
+                 <br>
+                 <b>价　格：</b><input type="text" id="price" name="price" onkeyup="value=value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" required>
+                 <br>
+                 <b>封　面：</b><input type="file" id="image" name="image"  required>
+                 <br>
+                 <button>提　交</button>
+             </form>
+             <p style="font-weight: bold;font-size: 20px;color: red;text-align: center">{{ mes }}</p>
+         </div>
+    <script type="text/javascript">
+         function checkNum (val) {
+             document.getElementById('num').value = val >= 0 ? val : 0
+         }
+    </script>
+    </body>
+</html>
